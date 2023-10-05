@@ -13,15 +13,7 @@ st.set_page_config(page_title="NAME",layout="wide")
 st.title("Operational Data")
 
 fl=st.file_uploader("file_folder: upload a file",type=(["csv","xls","xlsx"]))
-if fl is not None:
-    filename= fl.name
-    st.write(filename)
-    df=pd.read_excel(filename)
-    dashboard(df)
-else:
-    st.write("Upload File")
-    #os.chdir(r"H:\Web project")
-    #df=pd.read_excel("05 May 2023.xlsx")
+
 
 def dashboard(df):
 
@@ -115,3 +107,13 @@ def dashboard(df):
     st.write(Sales_Engineer_df.style.background_gradient(cmap="Blues"))
     csv=Sales_df.to_csv(index=False).encode('utf-8')
     st.download_button("Download Data",data = csv, file_name="SalesEngineer.csv", mime= "text/csv")
+
+if fl is not None:
+    filename= fl.name
+    st.write(filename)
+    df=pd.read_excel(filename)
+    dashboard(df)
+else:
+    st.write("Upload File")
+    #os.chdir(r"H:\Web project")
+    #df=pd.read_excel("05 May 2023.xlsx")
