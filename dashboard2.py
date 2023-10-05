@@ -17,8 +17,8 @@ fl=st.file_uploader("file_folder: upload a file",type=(["csv","xls","xlsx"]))
 
 def dashboard(df):
 
-    current_directory = os.getcwd()
-    st.write("Current Working Directory:", current_directory)
+    #current_directory = os.getcwd()
+    #st.write("Current Working Directory:", current_directory)
 
     col1,col2 =st.columns((2))
     df["TRANSDATE"]=pd.to_datetime(df["TRANSDATE"])
